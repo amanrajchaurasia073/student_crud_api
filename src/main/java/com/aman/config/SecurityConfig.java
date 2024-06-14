@@ -20,7 +20,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
@@ -55,16 +54,16 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(user1, user2);
     }
 
-    @Bean
-    AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-
-        // set password encoder
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-
-        // set UserDetailsService
-        daoAuthenticationProvider.setUserDetailsService(userDetailsService());
-
-        return daoAuthenticationProvider;
-    }
+//    @Bean
+//    AuthenticationProvider authenticationProvider() {
+//        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+//
+//        // set password encoder
+//        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+//
+//        // set UserDetailsService
+//        daoAuthenticationProvider.setUserDetailsService(userDetailsService());
+//
+//        return daoAuthenticationProvider;
+//    }
 }

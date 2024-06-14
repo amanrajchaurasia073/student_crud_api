@@ -4,8 +4,10 @@ import com.aman.exception.ResourceNotFoundException;
 import com.aman.model.Program;
 import com.aman.repository.ProgramRepository;
 import com.aman.service.IProgramService;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProgramService implements IProgramService {
@@ -26,7 +28,8 @@ public class ProgramService implements IProgramService {
     }
 
     @Override
-    public Program createProgram(Program program) {
+    public Program createProgram(Program program) throws ResourceNotFoundException{
+        Optional<Program> byId = programRepository.findById(program.getId());
         return programRepository.save(program);
     }
 

@@ -1,2 +1,7 @@
-package com.aman.exception;public class ForbiddenException {
+package com.aman.exception;
+
+public class ForbiddenException extends RuntimeException {
+    public ForbiddenException(String message) {
+        super(message);
+    }
 }
